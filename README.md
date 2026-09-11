@@ -16,7 +16,7 @@
 </p>
 
 <p align="center">
-  <img src="docs/screenshots/hero.png" alt="Telegram signals flowing into MetaTrader via Trade Station" width="920" />
+  <img src="docs/screenshots/dashboard-overview.png" alt="Trade Station analytics dashboard" width="920" />
 </p>
 
 ---
@@ -38,36 +38,56 @@ No license key or cloud account is required for the open-source build.
 
 ## Screenshots
 
+Real app captures (Zinc Dark theme). Click to open full size.
+
 <table>
   <tr>
     <td width="50%">
-      <a href="docs/screenshots/dashboard.png"><img src="docs/screenshots/dashboard.png" alt="Analytics dashboard" /></a><br/>
-      <sub><b>Dashboard</b> — KPIs, equity curve, calendar heatmap, account scope</sub>
+      <a href="docs/screenshots/dashboard-overview.png"><img src="docs/screenshots/dashboard-overview.png" alt="Dashboard overview" /></a><br/>
+      <sub><b>Dashboard</b> — KPIs, equity curve, slice filters, today’s fundamentals digest</sub>
     </td>
     <td width="50%">
-      <a href="docs/screenshots/signals.png"><img src="docs/screenshots/signals.png" alt="Signals and trades monitor" /></a><br/>
-      <sub><b>Trades</b> — All / Live / Closed / Blocked, execution monitor, resend &amp; journal</sub>
+      <a href="docs/screenshots/dashboard-calendar.png"><img src="docs/screenshots/dashboard-calendar.png" alt="Dashboard calendar and heatmap" /></a><br/>
+      <sub><b>Dashboard</b> — Trading calendar, hourly heatmap, weekday &amp; pair performance</sub>
     </td>
   </tr>
   <tr>
     <td>
-      <a href="docs/screenshots/fundamentals.png"><img src="docs/screenshots/fundamentals.png" alt="Fundamentals page" /></a><br/>
-      <sub><b>Fundamentals</b> — Calendar, strength, sentiment, news guard context</sub>
+      <a href="docs/screenshots/dashboard-advanced.png"><img src="docs/screenshots/dashboard-advanced.png" alt="Advanced analytics" /></a><br/>
+      <sub><b>Dashboard</b> — Session stats, Monte Carlo, underwater equity, killzones &amp; insights</sub>
     </td>
     <td>
-      <a href="docs/screenshots/connections.png"><img src="docs/screenshots/connections.png" alt="Connections and bridge" /></a><br/>
-      <sub><b>Connections</b> — TCP port, EA secret, MT5 snapshot, MT4 folder bridge</sub>
+      <a href="docs/screenshots/trades.png"><img src="docs/screenshots/trades.png" alt="Trades monitor" /></a><br/>
+      <sub><b>Trades</b> — Execution monitor, filters, AI analyse, resend to MT5, export</sub>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <a href="docs/screenshots/calendar.png"><img src="docs/screenshots/calendar.png" alt="Calendar stats" /></a><br/>
+      <sub><b>Calendar</b> — Month view, best/worst day, heatmap &amp; pair breakdown</sub>
+    </td>
+    <td>
+      <a href="docs/screenshots/telegram.png"><img src="docs/screenshots/telegram.png" alt="Telegram channels" /></a><br/>
+      <sub><b>Telegram</b> — Session status, channel search, copying active / other channels</sub>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <a href="docs/screenshots/settings-trading.png"><img src="docs/screenshots/settings-trading.png" alt="Settings trading tab" /></a><br/>
+      <sub><b>Settings</b> — Trade type, order type, TP mode, saved profiles</sub>
+    </td>
+    <td>
+      <a href="docs/screenshots/settings-risk.png"><img src="docs/screenshots/settings-risk.png" alt="Settings risk lots" /></a><br/>
+      <sub><b>Settings</b> — Lot sizing, break-even band, TP lot splits</sub>
     </td>
   </tr>
   <tr>
     <td colspan="2">
-      <a href="docs/screenshots/replay.png"><img src="docs/screenshots/replay.png" alt="Trade replay chart" /></a><br/>
-      <sub><b>Replay</b> — Bar replay with entry/exit markers and excursion insights</sub>
+      <a href="docs/screenshots/settings-guard.png"><img src="docs/screenshots/settings-guard.png" alt="Settings guard tab" /></a><br/>
+      <sub><b>Settings</b> — Guided vs Pro, advanced UI toggle, drawdown guardian</sub>
     </td>
   </tr>
 </table>
-
-> Replace images under `docs/screenshots/` with your own captures anytime (`Win + Shift + S` while the app is open).
 
 ---
 
