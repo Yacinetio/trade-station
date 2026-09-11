@@ -1,0 +1,349 @@
+.backtest-page {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px 20px 24px;
+  min-height: 100%;
+}
+
+.backtest-header h1 {
+  margin: 0;
+  font-size: 1.35rem;
+}
+
+.backtest-title-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.backtest-subtitle {
+  margin: 4px 0 0;
+  color: var(--text2);
+  font-size: 0.85rem;
+}
+
+.backtest-error {
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--danger) 15%, transparent);
+  color: var(--danger);
+  font-size: 0.85rem;
+}
+
+.backtest-layout {
+  display: grid;
+  grid-template-columns: minmax(260px, 320px) 1fr;
+  gap: 16px;
+  align-items: start;
+}
+
+.backtest-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.backtest-panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px;
+}
+
+.backtest-panel h2 {
+  margin: 0 0 10px;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.backtest-panel h3 {
+  margin: 12px 0 6px;
+  font-size: 0.85rem;
+  color: var(--text2);
+}
+
+.backtest-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.backtest-form label,
+.backtest-order-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.78rem;
+  color: var(--text2);
+}
+
+.backtest-form input,
+.backtest-form select,
+.backtest-order-form input,
+.backtest-order-form select,
+.backtest-panel textarea {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text);
+  padding: 6px 8px;
+  font-size: 0.85rem;
+}
+
+.backtest-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--border);
+  background: var(--surface2, var(--surface));
+  color: var(--text);
+  border-radius: 8px;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-size: 0.82rem;
+}
+
+.backtest-btn.primary {
+  background: var(--accent);
+  border-color: transparent;
+  color: #fff;
+  justify-content: center;
+}
+
+.backtest-btn.ghost {
+  margin-bottom: 8px;
+}
+
+.backtest-session-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-height: 240px;
+  overflow: auto;
+}
+
+.backtest-session-list li {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 4px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 4px;
+}
+
+.backtest-session-list li.active {
+  border-color: var(--accent);
+}
+
+.backtest-session-btn {
+  text-align: left;
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 0.78rem;
+}
+
+.backtest-session-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.backtest-session-actions button {
+  background: none;
+  border: none;
+  color: var(--text2);
+  cursor: pointer;
+  padding: 2px;
+}
+
+.backtest-muted {
+  color: var(--text3);
+  font-size: 0.78rem;
+}
+
+.backtest-main {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+}
+
+.backtest-empty {
+  padding: 48px 24px;
+  text-align: center;
+  color: var(--text2);
+  border: 1px dashed var(--border);
+  border-radius: 10px;
+}
+
+.backtest-stats-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+  padding: 10px 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.backtest-stat-label {
+  display: block;
+  font-size: 0.72rem;
+  color: var(--text3);
+}
+
+.backtest-equity-spark {
+  margin-left: auto;
+}
+
+.backtest-transport {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.backtest-transport button {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: 8px;
+  padding: 6px 8px;
+  cursor: pointer;
+  color: var(--text);
+}
+
+.backtest-bar-counter {
+  font-size: 0.82rem;
+  color: var(--text2);
+}
+
+.backtest-jump {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.78rem;
+  color: var(--text2);
+}
+
+.backtest-indicators {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.backtest-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.75rem;
+  padding: 4px 8px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.backtest-chart-wrap {
+  position: relative;
+  min-height: 360px;
+  height: 42vh;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.backtest-chart-canvas {
+  width: 100%;
+  height: 100%;
+}
+
+.backtest-chart-loading {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: var(--text2);
+  font-size: 0.85rem;
+}
+
+.backtest-bottom-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+.backtest-toggle-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+.backtest-toggle-row button {
+  border: 1px solid var(--border);
+  background: var(--bg);
+  border-radius: 8px;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.backtest-toggle-row button.active.buy {
+  border-color: var(--success);
+  color: var(--success);
+}
+
+.backtest-toggle-row button.active.sell {
+  border-color: var(--danger);
+  color: var(--danger);
+}
+
+.backtest-order-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.backtest-positions,
+.backtest-orders {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.backtest-pos-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 4px;
+}
+
+.backtest-pos-actions button,
+.backtest-orders button {
+  font-size: 0.72rem;
+  padding: 3px 6px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  cursor: pointer;
+  color: var(--text);
+}
+
+@media (max-width: 960px) {
+  .backtest-layout {
+    grid-template-columns: 1fr;
+  }
+}

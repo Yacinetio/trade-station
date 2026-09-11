@@ -1,0 +1,36 @@
+# dependencies
+node_modules/
+
+# build outputs
+dist/
+dist-release*/
+release/
+
+# logs
+*.log
+npm-debug.log*
+
+# env / local secrets
+.env
+.env.*
+!.env.example
+
+# IDE / OS
+.idea/
+.cursor/
+.DS_Store
+Thumbs.db
+
+# Playwright / test artefacts
+e2e-output/
+test-results/
+
+# Local keys / creds (never commit)
+*.pem
+*.key
+Trade-Station-*.exe
+Trade-Station-*.bat
+build-and-run-*.bat
+
+# User data (local dev only — app uses Documents/TradeStation at runtime)
+secrets/

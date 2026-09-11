@@ -1,0 +1,399 @@
+/* ═══ Trade Station — theme packs (set html[data-theme="..."]) ═══
+   "studio" = default from :root in global.css
+   Other themes override tokens + body background; fonts loaded in index.html
+   Retired themes (aurora, nord, sunset, terminal, paper, oled, tradezella,
+   tradezella-light, chartflow) are migrated to canonical ids in theme.js
+   (normalizeThemeId), so their CSS blocks were removed as dead code.
+*/
+
+/* ── Marketing site (dark) — matches website: zinc, green, subtle top glow ── */
+html[data-theme="site"] {
+  --font-sans: "Plus Jakarta Sans", "Inter", -apple-system, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --font-heading: var(--font-sans);
+  --bg: #050508;
+  --surface: #0c0c0d;
+  --surface2: #18181b;
+  --border: #27272a;
+  --accent: #22c55e;
+  --accent2: #4ade80;
+  --success: #22c55e;
+  --danger: #f43f5e;
+  --warning: #fbbf24;
+  --text: #f4f4f5;
+  --text2: #a1a1aa;
+  --text3: #71717a;
+  --buy: #22c55e;
+  --sell: #f43f5e;
+  --closed: #71717a;
+  --shadow-soft: 0 16px 40px rgba(0, 0, 0, 0.5);
+  --radius-lg: 10px;
+  --radius-md: 7px;
+  --panel-bg: color-mix(in srgb, var(--surface) 95%, #000 5%);
+  --panel-border: color-mix(in srgb, var(--border) 80%, #22c55e 8%);
+  --body-bg: radial-gradient(ellipse 120% 60% at 50% -15%, rgba(34, 197, 94, 0.14), transparent 52%),
+    radial-gradient(800px 500px at 0% 100%, rgba(24, 24, 27, 0.9), transparent 55%),
+    var(--bg);
+  --titlebar-brand: #4ade80;
+}
+
+/* ── Marketing site (light) ── */
+html[data-theme="site-light"] {
+  --font-sans: "DM Sans", "Inter", -apple-system, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --font-heading: var(--font-sans);
+  --bg: #f4f4f5;
+  --surface: #ffffff;
+  --surface2: #fafafa;
+  --border: #e4e4e7;
+  --accent: #16a34a;
+  --accent2: #15803d;
+  --success: #16a34a;
+  --danger: #dc2626;
+  --warning: #d97706;
+  --text: #18181b;
+  --text2: #52525b;
+  --text3: #a1a1aa;
+  --buy: #16a34a;
+  --sell: #dc2626;
+  --closed: #71717a;
+  --shadow-soft: 0 8px 28px rgba(15, 23, 42, 0.08);
+  --radius-lg: 12px;
+  --radius-md: 8px;
+  --panel-bg: #ffffff;
+  --panel-border: #e4e4e7;
+  --body-bg: radial-gradient(ellipse 100% 80% at 50% 0%, rgba(34, 197, 94, 0.08), transparent 45%),
+    linear-gradient(180deg, #fafafa 0%, #f4f4f5 100%);
+  --titlebar-brand: #15803d;
+}
+
+html[data-theme="site"] .titlebar,
+html[data-theme="site"] .sidebar,
+html[data-theme="site"] .right-panel,
+html[data-theme="site"] .center-panel {
+  letter-spacing: 0.01em;
+}
+
+/* ═══ Structural “skin” layers — layout, weight, and chrome (not just hue) ═══ */
+
+/* Studio: glassy rail, soft glow on active row */
+html[data-theme="studio"] .sidebar {
+  box-shadow: inset -1px 0 0 color-mix(in srgb, var(--accent) 18%, transparent);
+}
+html[data-theme="studio"] .titlebar {
+  border-bottom: 1px solid color-mix(in srgb, var(--border) 80%, var(--accent) 8%);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+html[data-theme="studio"] .page-container,
+html[data-theme="studio"] .center-panel {
+  font-size: 13px;
+  line-height: 1.45;
+}
+html[data-theme="studio"] .trade-table {
+  font-feature-settings: "tnum" 1, "lnum" 1;
+}
+html[data-theme="studio"] .filter-input,
+html[data-theme="studio"] .filter-select {
+  border-radius: var(--radius-md);
+  box-shadow: 0 1px 0 color-mix(in srgb, var(--border) 50%, transparent);
+}
+
+/* Site (dark): pill nav, floating card tables, no heavy titlebar */
+html[data-theme="site"] .sidebar {
+  background: linear-gradient(175deg, #0e0e10 0%, #0a0a0c 100%);
+  border-right: 1px solid #27272a;
+  box-shadow: 4px 0 32px rgba(0, 0, 0, 0.45);
+  backdrop-filter: none;
+}
+html[data-theme="site"] .nav-item {
+  border-radius: 9999px;
+  margin-left: 4px;
+  margin-right: 4px;
+  padding: 9px 14px;
+  border: 1px solid transparent;
+}
+html[data-theme="site"] .nav-item.active {
+  background: color-mix(in srgb, var(--accent) 12%, #09090b);
+  border-color: color-mix(in srgb, var(--accent) 40%, #27272a);
+  box-shadow: none;
+}
+html[data-theme="site"] .titlebar {
+  background: #0c0c0d;
+  border-bottom: 1px solid #27272a;
+  backdrop-filter: none;
+  min-height: 48px;
+  padding: 0 16px;
+}
+html[data-theme="site"] .trade-table {
+  border-radius: var(--radius-lg);
+  border: 1px solid #27272a;
+  overflow: hidden;
+  background: #0c0c0d;
+}
+html[data-theme="site"] .trade-table th {
+  text-transform: uppercase;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+}
+html[data-theme="site"] .stats-bar,
+html[data-theme="site"] .filter-bar {
+  border-radius: var(--radius-md);
+  border: 1px solid #27272a;
+  background: #0c0c0d;
+}
+html[data-theme="site"] .right-panel,
+html[data-theme="site"] .left-panel {
+  border-left: 1px solid #27272a;
+  background: #09090b;
+}
+
+/* Site light: airy, soft Elevation, larger tap areas */
+html[data-theme="site-light"] .app-with-sidebar {
+  gap: 0;
+}
+html[data-theme="site-light"] .titlebar {
+  background: #ffffff;
+  box-shadow: 0 1px 0 #e4e4e7, 0 8px 24px rgba(15, 23, 42, 0.05);
+  border-bottom: 1px solid #e4e4e7;
+  backdrop-filter: none;
+  min-height: 52px;
+}
+html[data-theme="site-light"] .sidebar {
+  background: #ffffff;
+  box-shadow: 4px 0 32px rgba(15, 23, 42, 0.06);
+  border-right: 1px solid #e4e4e7;
+  backdrop-filter: none;
+}
+html[data-theme="site-light"] .nav-item {
+  border-radius: 10px;
+  padding: 12px 14px;
+}
+html[data-theme="site-light"] .nav-item:hover {
+  background: #f4f4f5;
+  border-color: #e4e4e7;
+}
+html[data-theme="site-light"] .page-container,
+html[data-theme="site-light"] .center-panel {
+  line-height: 1.5;
+  font-size: 13.5px;
+}
+html[data-theme="site-light"] .trade-table th {
+  color: #71717a;
+  font-weight: 600;
+  font-size: 10px;
+  letter-spacing: 0.04em;
+}
+html[data-theme="site-light"] .stats-bar,
+html[data-theme="site-light"] .filter-bar,
+html[data-theme="site-light"] .right-panel,
+html[data-theme="site-light"] .chart-section,
+html[data-theme="site-light"] .analytics-card {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+/* ═══ Terminal Pro — flagship dark trading desk: surface-ladder hierarchy, hairline
+   borders, single emerald accent used scarcely, desaturated P&L semantics.
+   No glass, no blur, no glow — depth comes from surface lift only. ═══ */
+html[data-theme="terminal-pro"] {
+  --font-sans: "Inter", -apple-system, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --font-heading: var(--font-sans);
+  /* canvas + 4-step surface ladder */
+  --bg: #0a0a0c;
+  --surface: #0f1011; /* surface-1: cards, table base */
+  --surface2: #141516; /* surface-2: zebra rows, nested tiles */
+  --tp-surface3: #18191a; /* surface-3: hover */
+  --tp-surface4: #1b1c1e; /* surface-4: dropdowns, modals */
+  /* hairline border ladder */
+  --border: #232529;
+  --tp-border2: #2e3035; /* emphasized */
+  --tp-border3: #3a3c42; /* strong (focus adjacency, dividers under headers) */
+  /* single chromatic accent — emerald, scarce: primary CTA, focus, active nav, live dots */
+  --accent: #34d399;
+  --accent2: #2cc28b;
+  /* semantic P&L, desaturated ~18% for long-session comfort */
+  --success: #2fb37c;
+  --danger: #e05563;
+  --warning: #d9a03f;
+  /* text ladder: strong #f4f4f6 (headings, via scoped rule) → default → muted → faint */
+  --text: #d4d4d8;
+  --text2: #9b9ba3;
+  --text3: #6e6e76;
+  --tp-text-strong: #f4f4f6;
+  --buy: #2fb37c;
+  --sell: #e05563;
+  --closed: #6e6e76;
+  --shadow-soft: 0 8px 24px rgba(7, 8, 10, 0.35);
+  --radius-lg: 14px; /* same as studio — no layout shift */
+  --radius-md: 10px;
+  --panel-bg: #0f1011; /* opaque, flat — no glass mixing */
+  --panel-border: #232529;
+  --body-bg: linear-gradient(180deg, #0b0b0e 0%, #0a0a0c 55%, #09090b 100%);
+  --titlebar-brand: #34d399;
+  /* lightweight-charts (TradeReplayChart / AiLevelsChart read these at runtime) */
+  --chart-candle-up: #2fb37c;
+  --chart-candle-down: #e05563;
+  --chart-grid: rgba(35, 37, 41, 0.85);
+  --chart-text: #9b9ba3;
+  --chart-marker-buy: #2fb37c;
+  --chart-marker-sell: #e05563;
+  --chart-marker-exit: #6b7280;
+  --chart-line-sl: #d9a03f;
+  --chart-line-tp: #34d399;
+  --chart-pane-bg: #0c0d0e;
+}
+
+/* Headings: strong text step + slight negative tracking */
+html[data-theme="terminal-pro"] .titlebar h1,
+html[data-theme="terminal-pro"] .page-title,
+html[data-theme="terminal-pro"] .table-title,
+html[data-theme="terminal-pro"] .sidebar-title,
+html[data-theme="terminal-pro"] .brand-name,
+html[data-theme="terminal-pro"] .analytics-card-head {
+  color: var(--tp-text-strong);
+  letter-spacing: -0.02em;
+  font-weight: 600;
+}
+
+/* Flat chrome — hairline separation, kill blur/glow from studio defaults */
+html[data-theme="terminal-pro"] .sidebar {
+  background: #0c0d0e;
+  border-right: 1px solid var(--border);
+  box-shadow: none;
+  backdrop-filter: none;
+}
+html[data-theme="terminal-pro"] .titlebar {
+  background: #0c0d0e;
+  border-bottom: 1px solid var(--border);
+  box-shadow: none;
+  backdrop-filter: none;
+}
+html[data-theme="terminal-pro"] .nav-item:hover {
+  background: var(--tp-surface3);
+  border-color: var(--tp-border2);
+}
+html[data-theme="terminal-pro"] .nav-item.active {
+  background: var(--tp-surface3);
+  border-color: var(--tp-border2);
+  color: var(--accent);
+  box-shadow: inset 2px 0 0 var(--accent);
+}
+
+/* Panels ascend the surface ladder; flat fill + hairline, no soft glow */
+html[data-theme="terminal-pro"] .stats-bar,
+html[data-theme="terminal-pro"] .filter-bar,
+html[data-theme="terminal-pro"] .analytics-card,
+html[data-theme="terminal-pro"] .table-box,
+html[data-theme="terminal-pro"] .chart-section {
+  background: var(--surface);
+  border-color: var(--border);
+  box-shadow: none;
+  backdrop-filter: none;
+}
+html[data-theme="terminal-pro"] .right-panel,
+html[data-theme="terminal-pro"] .left-panel {
+  background: #0c0d0e;
+  border-color: var(--border);
+}
+
+/* Tables: dense zebra via surface-1/2, hover = surface-3, hairline separators */
+html[data-theme="terminal-pro"] .trade-table {
+  font-feature-settings: "tnum" 1, "lnum" 1;
+}
+html[data-theme="terminal-pro"] .trade-table thead {
+  background: var(--surface);
+}
+html[data-theme="terminal-pro"] .trade-table th {
+  color: var(--text2);
+  letter-spacing: 0.06em;
+  font-weight: 600;
+  font-size: 11px;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--tp-border2);
+}
+html[data-theme="terminal-pro"] .trade-table td {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+html[data-theme="terminal-pro"] .trade-table-wrap {
+  background: var(--surface);
+}
+html[data-theme="terminal-pro"] .trade-table-toolbar {
+  background: var(--surface2);
+  border-bottom-color: var(--border);
+}
+html[data-theme="terminal-pro"] .trade-table tbody tr:nth-child(even) td {
+  background: var(--surface2);
+}
+html[data-theme="terminal-pro"] .trade-table tr:hover td {
+  background: var(--tp-surface3);
+}
+html[data-theme="terminal-pro"] .trade-table tr.row-selected td {
+  background: color-mix(in srgb, var(--accent) 6%, var(--surface));
+}
+html[data-theme="terminal-pro"] .trade-table tr.row-keyboard-focus td {
+  outline: none;
+}
+
+/* Numerics: JetBrains Mono + tabular figures everywhere data lives */
+html[data-theme="terminal-pro"] .td-num,
+html[data-theme="terminal-pro"] .td-profit,
+html[data-theme="terminal-pro"] .td-time-mql,
+html[data-theme="terminal-pro"] .chart-pnl,
+html[data-theme="terminal-pro"] .stat-pill-value,
+html[data-theme="terminal-pro"] .num,
+html[data-theme="terminal-pro"] .filter-input,
+html[data-theme="terminal-pro"] .filter-select,
+html[data-theme="terminal-pro"] .select-field,
+html[data-theme="terminal-pro"] .settings-input {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Inputs/buttons: flat surface + hairline; primary = emerald fill, dark text */
+html[data-theme="terminal-pro"] .filter-input,
+html[data-theme="terminal-pro"] .filter-select,
+html[data-theme="terminal-pro"] .select-field,
+html[data-theme="terminal-pro"] .settings-input {
+  background: var(--surface2);
+  border-color: var(--border);
+  box-shadow: none;
+}
+html[data-theme="terminal-pro"] .btn {
+  box-shadow: none;
+}
+html[data-theme="terminal-pro"] .btn-primary {
+  background: var(--accent);
+  color: #04150d;
+  border-color: transparent;
+}
+html[data-theme="terminal-pro"] .btn-primary:hover {
+  background: var(--accent2);
+  color: #04150d;
+}
+
+html[data-theme="terminal-pro"] .page-container,
+html[data-theme="terminal-pro"] .center-panel {
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+/* Trade detail drawer — surface-4 lift, canvas scrim, hairline border */
+html[data-theme="terminal-pro"] .trade-detail-drawer-overlay {
+  background: color-mix(in srgb, var(--bg) 65%, transparent);
+  backdrop-filter: none;
+}
+html[data-theme="terminal-pro"] .trade-detail-drawer {
+  background: var(--tp-surface4);
+  border-left-color: var(--tp-border2);
+  box-shadow: var(--shadow-soft);
+}
+html[data-theme="terminal-pro"] .badge-buy .badge-dir { color: var(--buy); }
+html[data-theme="terminal-pro"] .badge-sell .badge-dir { color: var(--sell); }
+html[data-theme="terminal-pro"] .trade-table tr.row-flash-update td,
+html[data-theme="terminal-pro"] .trade-table tr[data-row-updated="1"] td {
+  animation: row-flash-update 200ms ease-out;
+}
+html[data-theme="terminal-pro"] .chart-pnl.positive { color: var(--success); }
+html[data-theme="terminal-pro"] .chart-pnl.negative { color: var(--danger); }

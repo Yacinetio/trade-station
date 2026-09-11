@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Trade Station logo">
+  <defs>
+    <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#78a2ff"/>
+      <stop offset="100%" stop-color="#5d7dff"/>
+    </linearGradient>
+  </defs>
+  <rect x="6" y="6" width="52" height="52" rx="14" fill="#0e1530" stroke="#28335d" stroke-width="2"/>
+  <path d="M16 42 L26 31 L34 37 L48 22" fill="none" stroke="url(#g1)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="48" cy="22" r="4" fill="#1fca86"/>
+</svg>

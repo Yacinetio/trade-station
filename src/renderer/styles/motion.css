@@ -1,0 +1,238 @@
+/* ═══ Trade Station — Motion System ════════════════════════════════════════
+   Cross-cutting animation library. Imported in index.jsx.
+   All animations respect prefers-reduced-motion.
+   Easing: strong ease-out for UI (Emil Kowalski / emil-design-eng); no bounce.
+══════════════════════════════════════════════════════════════════════════ */
+
+/* Strong ease curves — prefer over weak built-in easings */
+:root {
+  --ease-out-strong: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out-strong: cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+/* ── Entrance Animations ─────────────────────────────────────────────────── */
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes slide-in-right {
+  from { opacity: 0; transform: translateX(20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes slide-in-left {
+  from { opacity: 0; transform: translateX(-20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes slide-up-soft {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Feedback / Reactive Animations ─────────────────────────────────────── */
+@keyframes row-flash-green {
+  0%   { background: rgba(36, 208, 132, 0.18); }
+  100% { background: transparent; }
+}
+@keyframes row-flash-red {
+  0%   { background: rgba(255, 92, 117, 0.18); }
+  100% { background: transparent; }
+}
+@keyframes row-flash-amber {
+  0%   { background: rgba(255, 171, 0, 0.16); }
+  100% { background: transparent; }
+}
+@keyframes row-flash-update {
+  0%   { background: color-mix(in srgb, var(--accent) 14%, transparent); }
+  100% { background: transparent; }
+}
+@keyframes btn-shake {
+  0%, 100% { transform: translateX(0); }
+  20%       { transform: translateX(-5px); }
+  40%       { transform: translateX(5px); }
+  60%       { transform: translateX(-4px); }
+  80%       { transform: translateX(4px); }
+}
+@keyframes badge-pop {
+  0%   { transform: scale(1); }
+  40%  { transform: scale(1.18); }
+  100% { transform: scale(1); }
+}
+@keyframes stat-flash {
+  0%   { background: rgba(93, 125, 255, 0.18); }
+  100% { background: transparent; }
+}
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 8px rgba(36, 208, 132, 0.4); }
+  50%       { box-shadow: 0 0 20px rgba(36, 208, 132, 0.7); }
+}
+@keyframes live-dot-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.5; transform: scale(1.4); }
+}
+@keyframes draw-bar {
+  from { width: 0; }
+  to   { width: var(--bar-target-width, 0%); }
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+@keyframes fade-in-scale {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes shimmer {
+  0%   { background-position: -600px 0; }
+  100% { background-position: 600px 0; }
+}
+@keyframes toast-in {
+  from { opacity: 0; transform: translateY(12px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* ── Utility Classes ─────────────────────────────────────────────────────── */
+.animate-enter        { animation: fade-in-up 0.28s var(--ease-out-strong, cubic-bezier(0.23, 1, 0.32, 1)) both; }
+.animate-enter-fast   { animation: fade-in-up 0.18s var(--ease-out-strong, cubic-bezier(0.23, 1, 0.32, 1)) both; }
+.animate-enter-scale  { animation: fade-in-scale 0.22s var(--ease-out-strong, cubic-bezier(0.23, 1, 0.32, 1)) both; }
+.animate-stagger > *  { animation: fade-in-up 0.3s var(--ease-out-strong, cubic-bezier(0.23, 1, 0.32, 1)) both; animation-delay: calc(var(--stagger-index, 0) * 70ms); }
+.animate-slide-right  { animation: slide-in-right 0.25s var(--ease-out-strong, cubic-bezier(0.23, 1, 0.32, 1)) both; }
+.animate-slide-left   { animation: slide-in-left 0.25s var(--ease-out-strong, cubic-bezier(0.23, 1, 0.32, 1)) both; }
+.animate-scale-in     { animation: scale-in 0.22s var(--ease-out-strong, cubic-bezier(0.23, 1, 0.32, 1)) both; }
+.animate-fade         { animation: fade-in 0.2s var(--ease-out-strong, cubic-bezier(0.23, 1, 0.32, 1)) both; }
+.animate-toast-in     { animation: toast-in 0.24s var(--ease-out-strong, cubic-bezier(0.23, 1, 0.32, 1)) both; }
+
+.animate-flash-green  { animation: row-flash-green 0.2s ease-out; }
+.animate-flash-red    { animation: row-flash-red 0.2s ease-out; }
+.animate-flash-amber  { animation: row-flash-amber 0.2s ease-out; }
+.row-flash-update,
+.trade-table tr.row-flash-update td,
+.trade-table tr[data-row-updated="1"] td {
+  animation: row-flash-update 200ms ease-out;
+}
+.animate-shake        { animation: btn-shake 0.35s ease-in-out; }
+.animate-pop          { animation: badge-pop 0.3s ease-out; }
+.animate-stat-update  { animation: stat-flash 0.22s ease-out; }
+.animate-glow-pulse   { animation: glow-pulse 1.8s ease-in-out infinite; }
+.animate-spin         { animation: spin 0.8s linear infinite; }
+.animate-live-pulse   { animation: live-dot-pulse 1.6s ease-in-out infinite; }
+
+/* ── Table row active glow (table rows don't support box-shadow) ── */
+/* Use border-left + background tint on the first td instead */
+tr.account-row--active td:first-child {
+  border-left: 3px solid var(--success);
+  padding-left: 7px;
+}
+tr.account-row--active {
+  background: rgba(36, 208, 132, 0.04);
+}
+tr.account-row--active:hover {
+  background: rgba(36, 208, 132, 0.08);
+}
+/* Glow pulse on the 'Current' badge inside the active row */
+tr.account-row--active .connections-badge.current {
+  animation: glow-pulse 1.8s ease-in-out infinite;
+  box-shadow: 0 0 8px rgba(36, 208, 132, 0.5);
+}
+
+/* Press feedback */
+.animate-press:active { transform: scale(0.97); transition: transform 0.08s ease; }
+
+/* Hover lift for cards */
+.card-hover-lift {
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.card-hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* ── Stagger delay via CSS variable ──────────────────────────────────────── */
+.stagger-children > * {
+  animation: fade-in-up 0.3s ease-out both;
+}
+
+/* ── Draw bar animation ────────────────────────────────────────────────────── */
+.animate-draw-bar {
+  animation: draw-bar 0.55s ease-out both;
+  animation-delay: var(--draw-delay, 0ms);
+  /* Override any inline width so bar animates from 0 → target */
+  width: 0 !important;
+}
+
+/* ── Page transition base ─────────────────────────────────────────────────── */
+.page-enter {
+  animation: fade-in-up 0.28s var(--ease-out-strong, cubic-bezier(0.23, 1, 0.32, 1)) both;
+}
+
+/* High-frequency surfaces: no enter animation (command palette, etc.) */
+.modal-overlay--instant,
+.modal-overlay--instant .modal {
+  animation: none !important;
+  transition: none !important;
+}
+
+.value-transition {
+  transition: color 180ms ease-out;
+}
+
+/* ── Reduce motion overrides ──────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .trade-detail-drawer-overlay,
+  .trade-detail-drawer {
+    animation: none !important;
+  }
+
+  .trade-detail-drawer {
+    transform: none !important;
+  }
+
+  .value-transition {
+    transition: none !important;
+  }
+
+  .row-flash-update,
+  .trade-table tr.row-flash-update td,
+  .trade-table tr[data-row-updated="1"] td {
+    animation: none !important;
+  }
+}
+
+.execution-pipeline {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 8px;
+}
+.execution-pipeline-step {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  font-size: 12px;
+}
+.execution-pipeline-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-top: 4px;
+  background: var(--text3);
+  flex-shrink: 0;
+}
+.execution-pipeline-step--done .execution-pipeline-dot { background: var(--success); }
+.execution-pipeline-step--failed .execution-pipeline-dot { background: var(--danger); }
+.execution-pipeline-step--active .execution-pipeline-dot { background: var(--accent); }
+.execution-pipeline-step--pending .execution-pipeline-dot { background: var(--text3); opacity: 0.5; }
